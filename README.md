@@ -8,7 +8,7 @@ This control is inspired by the brilliant work of César Pinto Castillo's: [AMBl
 
 Screenshot
 --------------------
-![AMDraggableBlurView](http://www.eflatgames.com/github/AMDraggableBlurView.gif)
+![AMDraggableBlurView](http://www.eflatgames.com/github/AMDraggableBlurView1.gif)
 
 Setup with Cocoapods
 --------------------
