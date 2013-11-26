@@ -4,7 +4,7 @@ AMDraggableBlurView
 [![Build Status](https://travis-ci.org/andreamazz/AMDraggableBlurView.png)](https://travis-ci.org/andreamazz/AMDraggableBlurView)
 
 Draggable blurred view.
-This control is inspired by the brilliant work of of César Pinto Castillo's: [AMBlurView](https://github.com/andreamazz/iOS-blur)
+This control is inspired by the brilliant work of César Pinto Castillo's: [AMBlurView](https://github.com/andreamazz/iOS-blur)
 
 Screenshot
 --------------------
