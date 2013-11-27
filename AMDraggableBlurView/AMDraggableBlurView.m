@@ -97,7 +97,6 @@
         _toolbar = [[UIToolbar alloc] initWithFrame:[self bounds]];
         [self.layer insertSublayer:[_toolbar layer] atIndex:0];
 		[_toolbar setUserInteractionEnabled:YES];
-		[self addGestureRecognizer:self.panGesture];
     }
 	return _toolbar;
 }
@@ -107,6 +106,8 @@
 	if (!_panGesture) {
 		_panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
 		[_panGesture setMaximumNumberOfTouches:1];
+		[_panGesture setMinimumNumberOfTouches:1];
+		[_panGesture setCancelsTouchesInView:NO];
 	}
 	return _panGesture;
 }
@@ -114,6 +115,20 @@
 - (void)setBlurTintColor:(UIColor *)blurTintColor
 {
     [self.toolbar setBarTintColor:blurTintColor];
+}
+
+- (void)addSubview:(UIView *)view
+{
+	[super addSubview:view];
+	[view addGestureRecognizer:self.panGesture];
+	[view setUserInteractionEnabled:YES];
+}
+
+- (void)layoutSubviews
+{
+	[super layoutSubviews];
+	[self addGestureRecognizer:self.panGesture];
+	[self setUserInteractionEnabled:YES];
 }
 
 @end
