@@ -9,7 +9,7 @@
 #import "AMDraggableBlurView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AMDraggableBlurView ()
+@interface AMDraggableBlurView () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UIPanGestureRecognizer* panGesture;
@@ -17,6 +17,23 @@
 @end
 
 @implementation AMDraggableBlurView
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+	return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+	return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+	return YES;
+}
+
+
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,8 +64,6 @@
 
 - (void)handlePan:(UIPanGestureRecognizer*)sender
 {
-    [self bringSubviewToFront:[sender view]];
-	
 	[self adjustAnchorPointForGestureRecognizer:sender];
 	
 	CGPoint translation = [sender translationInView:[self superview]];
@@ -80,8 +95,8 @@
     [self setClipsToBounds:YES];
 	[self setBackgroundColor:[UIColor clearColor]];
 
-	[self.toolbar setFrame:[self bounds]];
 	
+	[self addGestureRecognizer:self.panGesture];
 	[self setUserInteractionEnabled:YES];
 }
 
@@ -107,6 +122,7 @@
 		_panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
 		[_panGesture setMaximumNumberOfTouches:1];
 		[_panGesture setMinimumNumberOfTouches:1];
+		[_panGesture setDelegate:self];
 		[_panGesture setCancelsTouchesInView:NO];
 	}
 	return _panGesture;
@@ -114,21 +130,13 @@
 
 - (void)setBlurTintColor:(UIColor *)blurTintColor
 {
-    [self.toolbar setBarTintColor:blurTintColor];
-}
-
-- (void)addSubview:(UIView *)view
-{
-	[super addSubview:view];
-	[view addGestureRecognizer:self.panGesture];
-	[view setUserInteractionEnabled:YES];
+	[self.toolbar setBarTintColor:blurTintColor];
 }
 
 - (void)layoutSubviews
 {
 	[super layoutSubviews];
-	[self addGestureRecognizer:self.panGesture];
-	[self setUserInteractionEnabled:YES];
+	[self.toolbar setFrame:[self bounds]];
 }
 
 @end
