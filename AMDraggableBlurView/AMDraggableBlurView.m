@@ -9,7 +9,7 @@
 #import "AMDraggableBlurView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AMDraggableBlurView () <UIGestureRecognizerDelegate>
+@interface AMDraggableBlurView ()
 
 @property (nonatomic, strong) UIToolbar *toolbar;
 @property (nonatomic, strong) UIPanGestureRecognizer* panGesture;
@@ -17,23 +17,6 @@
 @end
 
 @implementation AMDraggableBlurView
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-	return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-	return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-	return YES;
-}
-
-
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -94,8 +77,6 @@
 	/* Based of César Pinto Castillo's AMBlurView: https://github.com/andreamazz/iOS-blur */
     [self setClipsToBounds:YES];
 	[self setBackgroundColor:[UIColor clearColor]];
-
-	
 	[self addGestureRecognizer:self.panGesture];
 	[self setUserInteractionEnabled:YES];
 }
@@ -122,7 +103,6 @@
 		_panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
 		[_panGesture setMaximumNumberOfTouches:1];
 		[_panGesture setMinimumNumberOfTouches:1];
-		[_panGesture setDelegate:self];
 		[_panGesture setCancelsTouchesInView:NO];
 	}
 	return _panGesture;
