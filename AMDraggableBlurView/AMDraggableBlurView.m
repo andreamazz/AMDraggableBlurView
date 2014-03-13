@@ -20,6 +20,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
+#pragma warning Please note, this library uses code that is no longer permitted by Apple Review Guidelines. Use UIView+draggable instead
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setup];
@@ -29,6 +30,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+#pragma warning Please note, this library uses code that is no longer permitted by Apple Review Guidelines. Use UIView+draggable instead
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
@@ -38,6 +40,7 @@
 
 - (instancetype)init
 {
+#pragma warning Please note, this library uses code that is no longer permitted by Apple Review Guidelines. Use UIView+draggable instead
     self = [super init];
     if (self) {
         [self setup];

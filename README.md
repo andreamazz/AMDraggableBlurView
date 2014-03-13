@@ -1,3 +1,7 @@
+Warning
+=================
+Please note, this library uses code that is no longer permitted by Apple Review Guidelines. Use [UIView+draggable](https://github.com/andreamazz/UIView-draggable) instead coupled with something like [FXBlurView](https://github.com/nicklockwood/FXBlurView).
+
 AMDraggableBlurView
 =================
 
