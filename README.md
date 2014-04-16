@@ -12,7 +12,7 @@ This control is inspired by the brilliant work of César Pinto Castillo's: [AMBl
 
 Screenshot
 --------------------
-![AMDraggableBlurView](http://www.eflatgames.com/github/AMDraggableBlurView1.gif)
+![AMDraggableBlurView](https://raw.githubusercontent.com/andreamazz/AMDraggableBlurView/master/screenshot.gif)
 
 Setup with Cocoapods
 --------------------
