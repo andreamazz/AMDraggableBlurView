@@ -14,20 +14,20 @@ Screenshot
 --------------------
 ![AMDraggableBlurView](https://raw.githubusercontent.com/andreamazz/AMDraggableBlurView/master/screenshot.gif)
 
-Setup with Cocoapods
+Setup with CocoaPods
 --------------------
 * Add ```pod 'AMDraggableBlurView'``` to your Podfile
 * Run ```pod install```
 * Run ```open App.xcworkspace```
 * Add ```AMDraggableBlurView```s to your storyboard or in your code.
 
-Setup without Cocoapods
+Setup without CocoaPods
 --------------------
 * Clone this repo
 * Add the ```AMDraggableBlurView``` folder to your project
 * Import ```AMDraggableBlurView.h``` in your controller's header file
 * Add ```AMDraggableBlurView```s to your storyboard or in your code.
-* Start using Cocoapods ;)
+* Start using CocoaPods ;)
 
 Create a blurred view
 --------------------
